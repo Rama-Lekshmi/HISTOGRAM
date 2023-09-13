@@ -1,68 +1,130 @@
-# HISTOGRAM
-# Histogram and Histogram Equalization of an image
-## Aim
+## Ex-4   Histogram and Histogram Equalization of an image
+
+### Aim:
+
 To obtain a histogram for finding the frequency of pixels in an Image with pixel values ranging from 0 to 255. Also write the code using OpenCV to perform histogram equalization.
 
-## Software Required:
-Anaconda - Python 3.7
+### Software Required:
 
-## Algorithm:
-### Step1:
-Import the necessary libraries and read two images, Color image and Gray Scale image.
+Anaconda - Python 3.7 .
 
-### Step2:
-Calculate the Histogram of Gray scale image and each channel of the color image.
+### Algorithm:
 
-### Step3:
-Display the histograms with their respective images.
+### Step 1:
 
-### Step4:
-Equalize the grayscale image.
+Import cv2, matplotlib.py libraries and display the saved images using cv2.imshow().
 
-### Step5:
-Display the grayscale image.
+### Step 2:
 
-## Program:
+Use cv2.calcHist(images, channels, mask, histSize, ranges[, hist[, accumulate]]) to find the histogram of the image.
+
+### Step 3:
+
+Plot the image and its stem plots using the plt.show() and plt.stem() functions.
+
+### Step 4:
+
+Equalize the grayscale image using the in-built function cv2.equalizeHist().
+
+### Step 5:
+
+Print the original and equalized image using cv2.imshow() and end the program.
+
+### Program:
+
 ```python
-# Developed By: Rama E.K. Lekshmi
-# Register Number: 212222240082
+
+## Developed By : RAMA E K LAKSHMI LEKSHMI
+## Register Number : 212222240082
+
+```
+
+### Write your code to find the histogram of gray scale image and color image channels:
+
+```python
+
 import cv2
 import matplotlib.pyplot as plt
+gray_image = cv2.imread("gray.jpg")
+clr_image = cv2.imread("color.jpg",-1)
+cv2.imshow("Gray Image",gray_image)
+cv2.imshow("Colour Image",clr_image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
 
-# Write your code to find the histogram of gray scale image and color image channels.
+```
 
+### Display the histogram of gray scale image and any one channel histogram from color image:
 
+```python
 
-
-
-# Display the histogram of gray scale image and any one channel histogram from color image
-
-
-
-
-
-# Write the code to perform histogram equalization of the image. 
-
-
-
-
-
+import cv2
+import matplotlib.pyplot as plt
+gray_image = cv2.imread("gray.jpg")
+clr_image = cv2.imread("color.jpg",-1)
+gray_hist = cv2.calcHist([gray_image],[0],None,[256],[0,256])
+clr_hist = cv2.calcHist([clr_image],[0],None,[256],[0,256])
+plt.figure()
+plt.imshow(gray_image)
+plt.show()
+plt.title("Histogram")
+plt.xlabel("Grayscale Value")
+plt.ylabel("Pixel Count")
+plt.stem(gray_hist)
+plt.show()
+plt.imshow(clr_image)
+plt.show()
+plt.title("Histogram of Color Image - Green Channel")
+plt.xlabel("Intensity Value")
+plt.ylabel("Pixel Count")
+plt.stem(clr_hist)
+plt.show()
 
 
 ```
-## Output:
-### Input Grayscale Image and Color Image
-
-
-![Uploading Screenshot from 2023-09-13 14-24-33.png…]()
-
-### Histogram of Grayscale Image and any channel of Color Image
-
-
-### Histogram Equalization of Grayscale Image
 
 
 
+### Write the code to perform histogram equalization of the image:
 
-## Result: 
+```python
+
+import cv2
+import matplotlib.pyplot as plt
+gray_image = cv2.imread("gray.jpg",0)
+cv2.imshow("Gray Image",gray_image)
+equ = cv2.equalizeHist(gray_image)
+cv2.imshow("Equalized Image",equ)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+```
+
+
+
+### Output:
+
+### Input Grayscale Image and Color Image:
+
+![o1](https://user-images.githubusercontent.com/94525786/230705828-e72fac26-43aa-4d1f-a6df-f0452b9d88c3.png)
+
+
+### Histogram of Grayscale Image and any channel of Color Image:
+
+![o2](https://user-images.githubusercontent.com/94525786/230705830-4fe999e9-7c3c-438b-87fc-046df59c5fc4.png)
+
+![o3](https://user-images.githubusercontent.com/94525786/230705833-59486df0-8296-491a-b065-8ec546a2a6d2.png)
+
+
+
+### Histogram Equalization of Grayscale Image:
+
+
+![o4](https://user-images.githubusercontent.com/94525786/230705836-d961f181-51b3-4c68-87d0-aae116a76fd7.png)
+
+
+### Result: 
+
 Thus the histogram for finding the frequency of pixels in an image with pixel values ranging from 0 to 255 is obtained. Also,histogram equalization is done for the gray scale image using OpenCV.
+
+
