@@ -34,7 +34,7 @@ Print the original and equalized image using cv2.imshow() and end the program.
 
 ```python
 
-## Developed By : RAMA E K LAKSHMI LEKSHMI
+## Developed By : RAMA E K LEKSHMI
 ## Register Number : 212222240082
 
 ```
